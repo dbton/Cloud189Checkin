@@ -48,7 +48,7 @@ const doFamilyTask = async (cloudClient, logger) => {
       familyId = familyInfoResp[0].familyId;
     }
     logger.info(`执行家庭签到ID:${familyId}`);
-    const tasks = Array.from({ length: execThreshold }, () =>
+    const tasks = Array.from({ length: 1 }, () =>
       cloudClient.familyUserSign(familyId)
     );
     const result = (await Promise.allSettled(tasks)).filter(
